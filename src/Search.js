@@ -10,9 +10,9 @@ class Search extends Component{
     }
 	
 	onSearch = ({target: {value}}) => {
-     	value && BooksAPI.search(value).then((books: data) => {
+     	value ? BooksAPI.search(value).then((books: data) => {
           	this.setState({books})
-        })
+        }) : this.setState({books: []})
     }
 
   	render(){
