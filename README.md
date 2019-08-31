@@ -1,6 +1,6 @@
 # MyReads
 
-MyReads is a simple react web application to manage your books. You can group your books with 'Currently Read', 'Read', and 'Want to Read' label.
+MyReads is a simple react web application to manage your books. You can group your books with 'Currently Read', 'Read', and 'Want to Read' label. MyReads also can help you to search books and group it to those labels.
 
 ## Installation
 
