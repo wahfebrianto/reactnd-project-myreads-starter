@@ -36,7 +36,7 @@ npm start
     ├── BooksAPI.js # A JavaScript API for the provided Udacity backend. Instructions for the methods are below.
     ├── BookShelf.js # BookShelf component, for displaying multiple books data.
     ├── ContextMenu.js # ContextMenu component, for displaying and handle event context menu when user press right click.
-	├── Home.js # Home page of the website.
+    ├── Home.js # Home page of the website.
     ├── icons # Helpful images for your app. Use at your discretion.
     │   ├── add.svg
     │   ├── arrow-back.svg
