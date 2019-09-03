@@ -15,7 +15,7 @@ class BooksApp extends React.Component {
     }
 
 	updateBookLists = () => {
-      	BooksAPI.getAll().then((bookLists: data) => {
+      	BooksAPI.getAll().then((bookLists) => {
           	this.setState({bookLists})
         })
     }
