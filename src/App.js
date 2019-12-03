@@ -1,38 +1,38 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Route } from 'react-router-dom'
 import './App.css'
 import Home from './Home'
 import Search from './Search'
 import * as BooksAPI from './BooksAPI'
 
-class BooksApp extends React.Component {
-  	state = {
-    	bookLists: [],
-  	}
+export default function App() {
+	const [bookLists, setBookLists] = useState([])
 
-	componentDidMount() {
-      	this.updateBookLists()
-    }
+	const updateBookLists = () => {
+		BooksAPI.getAll().then(bookLists => {
+			setBookLists(bookLists)
+		})
+	}
 
-	updateBookLists = () => {
-      	BooksAPI.getAll().then((bookLists) => {
-          	this.setState({bookLists})
-        })
-    }
+	useEffect(() => {
+		updateBookLists()
+	})
 
-  	render() {
-      	const { bookLists } = this.state
-    	return (
-      		<div className="app">
-      			<Route exact path='/' render={() => 
-              		<Home bookLists={bookLists} updateBookLists={this.updateBookLists}/>
-				}/>
-      			<Route path='/search' render={() => 
-              		<Search bookLists={bookLists} updateBookLists={this.updateBookLists}/>
-				}/>
-      		</div>
-    	)
-  	}
+	return (
+		<div className='app'>
+			<Route
+				exact
+				path='/'
+				render={() => (
+					<Home bookLists={bookLists} updateBookLists={updateBookLists} />
+				)}
+			/>
+			<Route
+				path='/search'
+				render={() => (
+					<Search bookLists={bookLists} updateBookLists={updateBookLists} />
+				)}
+			/>
+		</div>
+	)
 }
-
-export default BooksApp
